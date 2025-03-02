@@ -299,42 +299,10 @@
     <main class="shop-page">
         <div class="shop-header">
             <h2>Produkte</h2>
-            <button class="btn toggle-form" onclick="document.querySelector('.product-form').classList.toggle('hidden')">
-                Produkt hinzufügen
-            </button>
         </div>
 
-        <div class="product-form hidden">
-            <h3>Neues Produkt hinzufügen</h3>
-            <form id="add-product-form">
-                <div class="form-group">
-                    <label for="product-name">Produktname*</label>
-                    <input type="text" id="product-name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-price">Preis (€)*</label>
-                    <input type="number" id="product-price" class="form-control" step="0.01" min="0" required>
-                </div>
-                <div class="form-group">
-                    <label for="product-image">Bild*</label>
-                    <input type="file" id="product-image" class="form-control" accept="image/*" required>
-                    <small class="form-text">Bitte wählen Sie ein Bild mit max. 2MB. Ideale Größe: 500x500px</small>
-                </div>
-                <div class="form-group">
-                    <label for="product-size">Verfügbare Größen</label>
-                    <input type="text" id="product-size" class="form-control" placeholder="z.B. S, M, L, XL oder 38-46">
-                    <small class="form-text">Mehrere Größen mit Komma trennen</small>
-                </div>
-                <div class="form-group">
-                    <label for="product-description">Beschreibung*</label>
-                    <textarea id="product-description" class="form-control" rows="3" required></textarea>
-                </div>
-                <button type="submit" class="btn">Produkt hinzufügen</button>
-            </form>
-        </div>
-
-        <div class="products">
-            <!-- Produkte werden dynamisch mit JavaScript geladen -->
+        <div class="products" id="productsContainer">
+            <!-- Produkte werden hier statisch angezeigt -->
         </div>
     </main>
 
@@ -370,6 +338,73 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Statische Produkt-Daten
+        const productData = [
+          {
+            "name": "Nike Vomero 18",
+            "price": 139.99,
+            "image": "bilder/NikeVomero18.jpg",
+            "description": "Der Nike Vomero 18 bietet optimale Dämpfung und Komfort für lange Läufe. Mit reaktiver ZoomX-Schaumstofftechnologie.",
+            "size": "40-46"
+          },
+          {
+            "name": "Garmin Forerunner 255",
+            "price": 349.99,
+            "image": "bilder/GarminForerunner.jpg",
+            "description": "Fortschrittliche Laufuhr mit GPS, Herzfrequenzmessung und Trainingsanalysen. Perfekt für ambitionierte Läufer.",
+            "size": "Einheitsgröße"
+          },
+          {
+            "name": "Salomon S/Lab Sense 8",
+            "price": 179.99,
+            "image": "bilder/SalomonSenseUltra.jpg",
+            "description": "Ultraleichter Trail-Laufschuh mit hervorragender Traktion auf verschiedenen Untergründen.",
+            "size": "41-45"
+          },
+          {
+            "name": "GORE Laufshirt Premium",
+            "price": 69.99,
+            "image": "bilder/GorePremium.jpg",
+            "description": "Atmungsaktives Laufshirt aus technischem Material für optimalen Feuchtigkeitstransport.",
+            "size": "S, M, L, XL"
+          }
+        ];
+
+        // Funktion zum Anzeigen der Produkte
+        function displayProducts() {
+            const productsContainer = document.getElementById('productsContainer');
+            
+            productData.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product-card');
+                
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-description">${product.description}</div>
+                        <div class="product-size">Größe: ${product.size}</div>
+                        <div class="product-price">${product.price.toFixed(2)} €</div>
+                        <button class="cart-btn">In den Warenkorb</button>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productElement);
+            });
+        }
+
+        // Bei Seitenladung Produkte anzeigen
+        document.addEventListener('DOMContentLoaded', function() {
+            displayProducts();
+            
+            // Event-Listener für Warenkorb-Buttons
+            document.querySelectorAll('.cart-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Der Shop ist aktuell nur zur Ansicht. Bitte kontaktieren Sie uns für weitere Informationen.');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
