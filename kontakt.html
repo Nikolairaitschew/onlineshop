@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endurance Elevation - Kontakt</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Header Styling */
+        .page-header {
+            background-color: #800000;
+            color: #fff;
+            padding: 25px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .page-header p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        /* Main Content Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-title h2 {
+            color: #333;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background-color: #800000;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Contact Styling */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1 1 400px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3, .contact-form h3 {
+            color: #800000;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .contact-info i {
+            color: #800000;
+            width: 20px;
+            margin-right: 10px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+        }
+        
+        .btn {
+            background-color: #800000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #600000;
+        }
+        
+        .social-icons {
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            color: #800000;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #600000;
+        }
+        
+        /* Footer Styling */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 30px 0 0 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 20px;
+        }
+        
+        .footer-logo {
+            flex: 1 1 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-img {
+            max-width: 150px;
+        }
+        
+        .footer-links {
+            flex: 1 1 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+        }
+        
+        .footer-contact {
+            flex: 1 1 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-contact h3 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+        
+        .footer-contact .social-icons a {
+            color: #ccc;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-contact .social-icons a:hover {
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            background-color: #800000;
+            padding: 15px 0;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin: 0;
+            color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="bilder/logo.png" alt="Endurance Elevation Logo" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="angebote.html">Angebote</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="ueber-uns.html">Über Uns</a></li>
+                <li><a href="trainingsgestaltung.html">Trainingsgestaltung</a></li>
+                <li><a href="kontakt.html" class="active">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Kontakt</h1>
+        <p>Wir freuen uns, von Ihnen zu hören</p>
+    </div>
+
+    <main class="container">
+        <section class="section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Kontaktieren Sie uns</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Musterstraße 123, 12345 Musterstadt</p>
+                    <p><i class="fas fa-envelope"></i> info@endurance-elevation.de</p>
+                    <p><i class="fas fa-phone"></i> +49 176 51257905</p>
+                    <p><i class="fas fa-clock"></i> Mo-Fr: 9:00-18:00 Uhr</p>
+                    
+                    <div class="social-icons" style="margin-top: 30px;">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-strava"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Nachricht senden</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Betreff</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Nachricht</label>
+                            <textarea id="message" class="form-control" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Nachricht senden</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-title">
+                <h2>Anfahrt</h2>
+            </div>
+            <div class="training-section">
+                <div style="width: 100%; height: 400px; background-color: #e6e6e6; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-map-marked-alt" style="font-size: 5rem; color: #800000; margin-bottom: 20px;"></i>
+                        <p>Google Maps Einbettung würde hier erscheinen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="bilder/logo.png" alt="Endurance Elevation Logo" class="footer-logo-img">
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="angebote.html">Angebote</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="ueber-uns.html">Über Uns</a></li>
+                    <li><a href="trainingsgestaltung.html">Trainingsgestaltung</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Kontakt</h3>
+                <p><i class="fas fa-envelope"></i> info@endurance-elevation.de</p>
+                <p><i class="fas fa-phone"></i> +49 176 51257905</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Endurance Elevation. Alle Rechte vorbehalten. | <a href="impressum.html" style="color: #fff; text-decoration: underline;">Impressum</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple form validation and submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Vielen Dank für Ihre Nachricht! Wir werden uns so schnell wie möglich bei Ihnen melden.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

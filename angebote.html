@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endurance Elevation - Angebote</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Header Styling */
+        .page-header {
+            background-color: #800000;
+            color: #fff;
+            padding: 25px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        .page-header p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-title h2 {
+            color: #333;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 2px;
+            background-color: #800000;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Training Karten */
+        .training-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .training-type-card {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            overflow: hidden;
+            flex: 1 1 400px;
+        }
+        
+        .training-type-header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #800000;
+        }
+        
+        .target-group-list {
+            padding: 0;
+        }
+        
+        .target-group-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .target-group-item:last-child {
+            border-bottom: none;
+        }
+        
+        .target-group-name {
+            color: #800000;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .target-group-price {
+            font-size: 0.9rem;
+        }
+        
+        /* Zusätzliche Angebote */
+        .zusatzangebote {
+            margin-top: 50px;
+        }
+        
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            flex: 1 1 300px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .service-header {
+            background-color: #800000;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-header i {
+            margin-right: 10px;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-description {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .service-price {
+            font-size: 1.3rem;
+            color: #800000;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .book-btn {
+            display: inline-block;
+            background-color: #800000;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .book-btn:hover {
+            background-color: #600000;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        /* Footer Styling */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 30px 0 0 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 20px;
+        }
+        
+        .footer-logo {
+            flex: 1 1 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-img {
+            max-width: 150px;
+        }
+        
+        .footer-links {
+            flex: 1 1 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+        }
+        
+        .footer-contact {
+            flex: 1 1 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-contact h3 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+        
+        .social-icons {
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            color: #ccc;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            background-color: #800000;
+            padding: 15px 0;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin: 0;
+            color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="bilder/logo.png" alt="Endurance Elevation Logo" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="angebote.html" class="active">Angebote</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="ueber-uns.html">Über Uns</a></li>
+                <li><a href="trainingsgestaltung.html">Trainingsgestaltung</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Angebote</h1>
+        <p>Unsere vielfältigen Trainingsoptionen im Überblick</p>
+    </div>
+
+    <main class="container">
+        <section class="section">
+            <div class="section-title">
+                <h2>Trainingsangebote im Überblick</h2>
+            </div>
+            <div class="training-cards">
+                <div class="training-type-card">
+                    <div class="training-type-header">Einzeltraining</div>
+                    <ul class="target-group-list">
+                        <li class="target-group-item">
+                            <div class="target-group-name">Beginner (0-2 Jahre Lauferfahrung)</div>
+                            <div class="target-group-price">Ab 60€ pro Monat</div>
+                        </li>
+                        <li class="target-group-item">
+                            <div class="target-group-name">Fortgeschrittene (2-5 Jahre Lauferfahrung)</div>
+                            <div class="target-group-price">Ab 80€ pro Monat</div>
+                        </li>
+                        <li class="target-group-item">
+                            <div class="target-group-name">Ambitionierte (5+ Jahre Lauferfahrung)</div>
+                            <div class="target-group-price">Ab 100€ pro Monat</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="training-type-card">
+                    <div class="training-type-header">Gruppentraining</div>
+                    <ul class="target-group-list">
+                        <li class="target-group-item">
+                            <div class="target-group-name">Laufgruppe Anfänger</div>
+                            <div class="target-group-price">40€ pro Monat</div>
+                        </li>
+                        <li class="target-group-item">
+                            <div class="target-group-name">Laufgruppe Fortgeschrittene</div>
+                            <div class="target-group-price">50€ pro Monat</div>
+                        </li>
+                        <li class="target-group-item">
+                            <div class="target-group-name">Wettkampfvorbereitung</div>
+                            <div class="target-group-price">60€ pro Monat</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+            
+        <section class="section zusatzangebote">
+            <div class="section-title">
+                <h2>Zusätzliche Angebote</h2>
+            </div>
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-clipboard-check"></i> Leistungsdiagnostik
+                    </div>
+                    <div class="service-content">
+                        <p class="service-description">Umfassende Leistungsanalyse mit Laktattest, VO2max-Messung und individueller Auswertung. Inklusive Trainingsempfehlungen basierend auf den Testergebnissen.</p>
+                        <div class="service-price">150€</div>
+                        <a href="kontakt.html" class="book-btn">Termin vereinbaren</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-running"></i> Lauftechnikanalyse
+                    </div>
+                    <div class="service-content">
+                        <p class="service-description">Videogestützte Analyse Ihres Laufstils mit individuellen Korrekturübungen und Techniktraining zur Verbesserung der Laufökonomie und Verletzungsprävention.</p>
+                        <div class="service-price">80€</div>
+                        <a href="kontakt.html" class="book-btn">Termin vereinbaren</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-calendar-alt"></i> Wettkampfbetreuung
+                    </div>
+                    <div class="service-content">
+                        <p class="service-description">Professionelle Betreuung vor, während und nach dem Wettkampf. Inklusive Rennstrategie, Tapering-Plan und Wettkampfverpflegung.</p>
+                        <div class="service-price">Ab 120€</div>
+                        <a href="kontakt.html" class="book-btn">Anfrage stellen</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="bilder/logo.png" alt="Endurance Elevation Logo" class="footer-logo-img">
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="angebote.html">Angebote</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="ueber-uns.html">Über Uns</a></li>
+                    <li><a href="trainingsgestaltung.html">Trainingsgestaltung</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Kontakt</h3>
+                <p><i class="fas fa-envelope"></i> info@endurance-elevation.de</p>
+                <p><i class="fas fa-phone"></i> +49 176 51257905</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Endurance Elevation. Alle Rechte vorbehalten. | <a href="impressum.html" style="color: #fff; text-decoration: underline;">Impressum</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
